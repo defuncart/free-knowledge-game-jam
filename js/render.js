@@ -24,6 +24,7 @@ function update_map(region_id, player_support) {
 
 function update_progress(player_support) {
     $('#progress_bar').css('width', player_support + 'px');
+    // TODO: Try this solution for the progress bar http://stackoverflow.com/a/5513717/322818
 }
 
 function random_progress() {  // just for testing purposes
