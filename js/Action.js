@@ -37,12 +37,12 @@ function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChanc
 {
 	console.log("Social Media")
 
-	this.supportNeeded: supportNeeded,
-	this.supportGiven: supportGiven,
-	this.recruitmentChance: recruitmentChance,
-	this.caughtChance: caughtChance,
-	this.isGlobalAction: isGlobalAction,
-	this.isUnlocked: isUnlocked
+	this.supportNeeded = supportNeeded;
+	this.supportGiven = supportGiven;
+	this.recruitmentChance = recruitmentChance;
+	this.caughtChance = caughtChance;
+	this.isGlobalAction = isGlobalAction;
+	this.isUnlocked = isUnlocked;
 }
 
 SocialMedia.prototype.outcome = function()
