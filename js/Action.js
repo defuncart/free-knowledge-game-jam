@@ -1,48 +1,38 @@
-function Action(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
+function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
 	this.isGlobalAction = isGlobalAction;
-	this.isUnlocked = isUnlocked
+	this.isUnlocked = isUnlocked;
 }
-
-Action.prototype.outcome = function()
-{
-	if( Math.random() < this.caughtChance )
-	{
-		console.log("Game Over");
-	}
-}
-
-// Action.prototype.createNewRecruit()
-// {
-// 	//spy, mole, hacker, printer, activist
-
-// 	// Math.random() * 
-// }
-
-/*						Social Media			*/
-
-SocialMedia.prototype = new Action();
-SocialMedia.prototype.constructor = Action
-function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
 
 SocialMedia.prototype.outcome = function()
 {
 	console.log("SocialMedia outcome");
 
-	Action.prototype.outcome.call(this);
+	// Action.prototype.outcome.call(this);
+
+	if( Math.random() < this.caughtChance )
+	{
+		console.log("Game Over");
+	}
+	
 
 	// TO DO
 }
 
 /*						Graffiti			*/
-
-Graffiti.prototype = new Action();
-Graffiti.prototype.constructor = Action
-function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
+function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
+{
+	this.supportNeeded = supportNeeded;
+	this.supportGiven = supportGiven;
+	this.recruitmentChance = recruitmentChance;
+	this.caughtChance = caughtChance;
+	this.isGlobalAction = isGlobalAction;
+	this.isUnlocked = isUnlocked;
+}
 
 Graffiti.prototype.outcome = function()
 {
@@ -54,10 +44,15 @@ Graffiti.prototype.outcome = function()
 }
 
 /*						Speaking			*/
-
-Speaking.prototype = new Action();
-Speaking.prototype.constructor = Action
-function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
+function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
+{
+	this.supportNeeded = supportNeeded;
+	this.supportGiven = supportGiven;
+	this.recruitmentChance = recruitmentChance;
+	this.caughtChance = caughtChance;
+	this.isGlobalAction = isGlobalAction;
+	this.isUnlocked = isUnlocked;
+}
 
 Speaking.prototype.outcome = function()
 {
@@ -69,10 +64,15 @@ Speaking.prototype.outcome = function()
 }
 
 /*						Flyers			*/
-
-Flyers.prototype = new Action();
-Flyers.prototype.constructor = Action
-function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
+function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
+{
+	this.supportNeeded = supportNeeded;
+	this.supportGiven = supportGiven;
+	this.recruitmentChance = recruitmentChance;
+	this.caughtChance = caughtChance;
+	this.isGlobalAction = isGlobalAction;
+	this.isUnlocked = isUnlocked;
+}
 
 Flyers.prototype.outcome = function()
 {
@@ -84,10 +84,15 @@ Flyers.prototype.outcome = function()
 }
 
 /*						Demo			*/
-
-Demo.prototype = new Action();
-Demo.prototype.constructor = Action
-function Demo(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
+function Demo(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
+{
+	this.supportNeeded = supportNeeded;
+	this.supportGiven = supportGiven;
+	this.recruitmentChance = recruitmentChance;
+	this.caughtChance = caughtChance;
+	this.isGlobalAction = isGlobalAction;
+	this.isUnlocked = isUnlocked;
+}
 
 Demo.prototype.outcome = function()
 {
@@ -99,10 +104,15 @@ Demo.prototype.outcome = function()
 }
 
 /*						Election			*/
-
-Election.prototype = new Action();
-Election.prototype.constructor = Action
-function Election(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
+function Election(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
+{
+	this.supportNeeded = supportNeeded;
+	this.supportGiven = supportGiven;
+	this.recruitmentChance = recruitmentChance;
+	this.caughtChance = caughtChance;
+	this.isGlobalAction = isGlobalAction;
+	this.isUnlocked = isUnlocked;
+}
 
 Election.prototype.outcome = function()
 {
@@ -114,10 +124,15 @@ Election.prototype.outcome = function()
 }
 
 /*						Newspapers			*/
-
-Newspapers.prototype = new Action();
-Newspapers.prototype.constructor = Action
-function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
+function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
+{
+	this.supportNeeded = supportNeeded;
+	this.supportGiven = supportGiven;
+	this.recruitmentChance = recruitmentChance;
+	this.caughtChance = caughtChance;
+	this.isGlobalAction = isGlobalAction;
+	this.isUnlocked = isUnlocked;
+}
 
 Newspapers.prototype.outcome = function()
 {
@@ -129,10 +144,15 @@ Newspapers.prototype.outcome = function()
 }
 
 /*						Hacking			*/
-
-Hacking.prototype = new Action();
-Hacking.prototype.constructor = Action
-function Hacking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
+function Hacking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
+{
+	this.supportNeeded = supportNeeded;
+	this.supportGiven = supportGiven;
+	this.recruitmentChance = recruitmentChance;
+	this.caughtChance = caughtChance;
+	this.isGlobalAction = isGlobalAction;
+	this.isUnlocked = isUnlocked;
+}
 
 Hacking.prototype.outcome = function()
 {
