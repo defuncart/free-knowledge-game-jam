@@ -34,6 +34,8 @@ function go()
 	calculatePlayerSupport();
 	console.log( playerSupport );
 
+	console.log( counties[0].name )
+
 	playerGameMove(counties[0], 0);
 
 	calculatePlayerSupport();
