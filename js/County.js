@@ -1,3 +1,11 @@
+/*
+	name						String
+	playerSupport				0 - 100
+
+	urbanization, persuasibility, votingStrength
+*/
+
+
 function County(name, playerSupport, urbanization, persuasibility, votingStrength)
 {
 	this.name = name
@@ -5,6 +13,4 @@ function County(name, playerSupport, urbanization, persuasibility, votingStrengt
 	this.urbanization = urbanization
 	this.persuasibility = persuasibility
 	this.votingStrength = votingStrength
-
-	// console.log("name: " + name)
 }

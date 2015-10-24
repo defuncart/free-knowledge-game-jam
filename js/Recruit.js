@@ -1,7 +1,78 @@
-function Recruit(name)
+var hackerIsUnlocked = false;
+var printerIsUnlocked = false;
+
+function Recruit()
 {
-	this.name = name
+	var percentageArray = [0.4, 0.05, 0.15, 0.15, 0.25];
+	var recruits = ["Spy", "Mole", "Hacker", "Printer", "Activist"];
+	var recruitNames = ["Phil Gagliano", "Sonny Bumbalough", "Benjamin Miler", "Laverne Wojcik", "Santiago Hocker", "Guy Raye", "Willis Ismail", "Sylvester Robison", "Britt Havel", "Buck Kehl", "Kacie Cantero", "Shante Rios", "Odelia Howell", "Jutta Wilcoxson", "Rosy O'Shea", "Keva Plunkett", "Magaly Zheng", "Tamiko Eyler", "Keli Welker", "Tenesha Grosch"];
+	var recruitText = [];
 
-//spy, mole, hacker, printer, activist
+	var count = 0.0;
+	var randomNumber = Math.random();
+	for(var i=0; i < percentageArray.length; i++)
+	{
+		count += percentageArray[i];
+		if( randomNumber < count )
+		{
+			this.type = recruits[i];
+			this.name = recruitNames[ Math.floor(Math.random()*recruitNames.length) ]
+			this.text = "I want to join your group."
+			if( i == 2 ){ hackerIsUnlocked = true }
+			if( i == 3 ){ printerIsUnlocked = true }
+			break;
+		}
+	}
+}
 
+Recruit.prototype.ability = function()
+{
+	switch( this.type )
+	{
+		case "Spy":
+		{
+			console.log("Spy")
+
+			for(var i=0; i < player.actions.length; i++)
+			{
+				player.actions[i].caughtChance += 0.2;
+				if( player.actions[i] > 1 ){ player.actions[i] = 1 }
+				console.log(player.actions[i].caughtChance);
+			}
+
+			break;
+		}
+		case "Mole":
+		{
+			console.log("Mole")
+			for(var i=0; i < player.actions.length; i++)
+			{
+				player.actions[i].caughtChance -= 0.1;
+				if( player.actions[i] < 0 ){ player.actions[i] = 0 }
+				console.log(player.actions[i].caughtChance);
+			}
+			break;
+		}
+		case "Hacker":
+		{
+			console.log("Hacker")
+			break;
+		}
+		case "Printer":
+		{
+			console.log("Printer")
+			break;
+		}
+		case "Activist":
+		{
+			console.log("Activist")
+			for(var i=0; i < counties.length; i++)
+			{
+				counties[i].playerSupport += 10;
+				console.log(counties[i].playerSupport);
+			}
+			break;
+		}
+		default: {}
+	}
 }

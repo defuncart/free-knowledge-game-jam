@@ -11,17 +11,31 @@ function calculatePlayerSupport()
 	playerSupport = temp / counties.length
 }
 
+function addRecruit()
+{
+	var recruit = new Recruit();
+	console.log(recruit.name);
+	console.log(recruit.type);
+	player.recruits.push( recruit );
+}
+
 var government = Government();
 
 var counties = [];
 counties.push( new County("capital", 2, 100, 65, 0.13) );
 counties.push( new County("universiy", 1, 80, 50, 0.09) );
-counties.push( new County("business", 7, 80, 25, 0.07) );
+counties.push( new County("financial", 7, 80, 25, 0.07) );
 counties.push( new County("township1", 1, 50, 30, 0.15) );
 counties.push( new County("township2", 2, 40, 15, 0.17) );
 counties.push( new County("countryside1", 1, 20, 40, 0.15) );
 counties.push( new County("countryside2", 2, 20, 70, 0.12) );
 counties.push( new County("countryside3", 3, 10, 10, 0.12) );
+
+function gameOver()
+{
+	console.log("gameOver")
+	alert("Game Over");
+}
 
 function GameEngine()
 {
@@ -29,6 +43,8 @@ function GameEngine()
 	
 
 }
+
+
 
 function go()
 {
@@ -50,15 +66,12 @@ function go()
 
 function playerGameMove(county, action)
 {
-	//player.actions[0]
-
 	county.playerSupport += player.actions[action].supportGiven
+	actions[action].outcome()
 }
 
 function computerGameMove(county)
 {
-	//player.actions[0]
-
 	county.playerSupport -= Math.floor( Math.random() * 3 )
 	county.playerSupport = ( county.playerSupport < 0 ? 0 : county.playerSupport )
 }

@@ -1,3 +1,13 @@
+/*
+	supportNeeded				0 - 100
+	supportGiven				0 - 100
+	recruitmentChance			0.0 - 1.0
+	caughtChance				0.0	- 1.0
+	isGlobalAction				boolean
+	isUnlocked					boolean
+*/
+
+/*						Social Media			*/
 function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
 	this.supportNeeded = supportNeeded;
@@ -12,11 +22,37 @@ SocialMedia.prototype.outcome = function()
 {
 	console.log("SocialMedia outcome");
 
-	// Action.prototype.outcome.call(this);
-
 	if( Math.random() < this.caughtChance )
 	{
-		console.log("Game Over");
+		gameOver();
+		return;
+	}
+
+	if( Math.random() < this.recruitmentChance )
+	{
+		var recruit = new Recruit();
+
+		bootbox.dialog({
+  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			title: "You received a message from " + recruit.name,
+  			buttons:
+  			{
+    			no:
+    			{
+      				label: "no",
+      			},
+			    yes:
+			    {
+      				label: "yes",
+      				callback: function()
+      				{
+      					console.log("yes");
+        				player.recruits.push( recruit );
+        				recruit.ability();
+      				}
+      			}
+      		}
+		});
 	}
 	
 
@@ -161,4 +197,4 @@ Hacking.prototype.outcome = function()
 	Action.prototype.outcome.call(this);
 
 	// TO DO
-}
+}	
