@@ -1,18 +1,19 @@
-//supportNeeded, impact, recruitChance, caughtChance, global, 
-
-function Action(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction)
+function Action(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
-	console.log("Action")
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
 	this.isGlobalAction = isGlobalAction;
+	this.isUnlocked = isUnlocked
 }
 
 Action.prototype.outcome = function()
 {
-	console.log("Action outcome");
+	if( Math.random() < this.caughtChance )
+	{
+		console.log("Game Over");
+	}
 }
 
 // Action.prototype.createNewRecruit()
@@ -26,12 +27,73 @@ Action.prototype.outcome = function()
 
 SocialMedia.prototype = new Action();
 SocialMedia.prototype.constructor = Action
-function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction)
-{
-	// Action.prototype.
-}
+function SocialMedia() {}
 
 SocialMedia.prototype.outcome = function()
 {
 	console.log("SocialMedia outcome");
+
+	Action.prototype.outcome.call(this);
+
+	// TO DO
+}
+
+/*						Graffiti			*/
+
+Graffiti.prototype = new Action();
+Graffiti.prototype.constructor = Action
+function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction) {}
+
+Graffiti.prototype.outcome = function()
+{
+	console.log("Graffiti outcome");
+
+	Action.prototype.outcome.call(this);
+
+	// TO DO
+}
+
+/*						Speaking			*/
+
+Speaking.prototype = new Action();
+Speaking.prototype.constructor = Action
+function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction) {}
+
+Speaking.prototype.outcome = function()
+{
+	console.log("Speaking outcome");
+
+	Action.prototype.outcome.call(this);
+
+	// TO DO
+}
+
+/*						Flyers			*/
+
+Flyers.prototype = new Action();
+Flyers.prototype.constructor = Action
+function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction) {}
+
+Flyers.prototype.outcome = function()
+{
+	console.log("Flyers outcome");
+
+	Action.prototype.outcome.call(this);
+
+	// TO DO
+}
+
+/*						Demo			*/
+
+Demo.prototype = new Action();
+Demo.prototype.constructor = Action
+function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction) {}
+
+Flyers.prototype.outcome = function()
+{
+	console.log("Flyers outcome");
+
+	Action.prototype.outcome.call(this);
+
+	// TO DO
 }
