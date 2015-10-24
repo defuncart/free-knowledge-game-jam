@@ -1,23 +1,24 @@
-function Action(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
-{
-	console.log("Action")
-	this.supportNeeded = supportNeeded;
-	this.supportGiven = supportGiven;
-	this.recruitmentChance = recruitmentChance;
-	this.caughtChance = caughtChance;
-	this.isGlobalAction = isGlobalAction;
-	this.isUnlocked = isUnlocked;
+// var Action = function (supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
+// {
+// 	var publicApi = {
+// 		supportNeeded: supportNeeded,
+// 		supportGiven: supportGiven,
+// 		recruitmentChance: recruitmentChance,
+// 		caughtChance: caughtChance,
+// 		isGlobalAction: isGlobalAction,
+// 		isUnlocked: isUnlocked
+// 	};
 
-	return this;
-}
+// 	return publicApi;
+// }
 
-Action.prototype.outcome = function()
-{
-	if( Math.random() < this.caughtChance )
-	{
-		console.log("Game Over");
-	}
-}
+// Action.prototype.outcome = function()
+// {
+// 	if( Math.random() < this.caughtChance )
+// 	{
+// 		console.log("Game Over");
+// 	}
+// }
 
 // Action.prototype.createNewRecruit()
 // {
@@ -28,18 +29,33 @@ Action.prototype.outcome = function()
 
 /*						Social Media			*/
 
-SocialMedia.prototype = new Action();
-SocialMedia.prototype.constructor = Action
+function Action() {}
+
+// SocialMedia.prototype = new Action();
+// SocialMedia.prototype.constructor = Action
 function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
 	console.log("Social Media")
+
+	this.supportNeeded: supportNeeded,
+	this.supportGiven: supportGiven,
+	this.recruitmentChance: recruitmentChance,
+	this.caughtChance: caughtChance,
+	this.isGlobalAction: isGlobalAction,
+	this.isUnlocked: isUnlocked
 }
 
 SocialMedia.prototype.outcome = function()
 {
 	console.log("SocialMedia outcome");
 
-	Action.prototype.outcome.call(this);
+	// Action.prototype.outcome.call(this);
+
+	if( Math.random() < this.caughtChance )
+	{
+		console.log("Game Over");
+	}
+	
 
 	// TO DO
 }
