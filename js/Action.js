@@ -113,15 +113,15 @@ Election.prototype.outcome = function()
 	// TO DO
 }
 
-/*						Newpapers			*/
+/*						Newspapers			*/
 
-Newpapers.prototype = new Action();
-Newpapers.prototype.constructor = Action
-function Newpapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
+Newspapers.prototype = new Action();
+Newspapers.prototype.constructor = Action
+function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
 
-Newpapers.prototype.outcome = function()
+Newspapers.prototype.outcome = function()
 {
-	console.log("Newpapers outcome");
+	console.log("Newspapers outcome");
 
 	Action.prototype.outcome.call(this);
 
