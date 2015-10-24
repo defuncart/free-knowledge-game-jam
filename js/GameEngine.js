@@ -1,4 +1,4 @@
-var player = Player();
+var player = new Player();
 var playerSupport = 0 // 0 to 100
 function calculatePlayerSupport()
 {
