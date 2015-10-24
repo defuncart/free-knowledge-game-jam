@@ -24,11 +24,11 @@ Action.prototype.createNewRecruit()
 /*						Social Media			*/
 
 SocialMedia.prototype = new Action();
-// SocialMedia.prototype.constructor = SocialMedia
-function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction)
-{
-	// Action.prototype.
-}
+SocialMedia.prototype.constructor = Action
+// function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction)
+// {
+// 	// Action.prototype.
+// }
 
 SocialMedia.prototype.outcome = function()
 {
