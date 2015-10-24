@@ -49,7 +49,7 @@ function playerGameMove(county, action)
 {
 	//player.actions[0]
 
-	county.playerSupport += playerSupport.actions[action].supportGiven
+	county.playerSupport += player.actions[action].supportGiven
 }
 
 function computerGameMove(county)
