@@ -6,7 +6,9 @@ function Action(supportNeeded, supportGiven, recruitmentChance, caughtChance, is
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
 	this.isGlobalAction = isGlobalAction;
-	this.isUnlocked = isUnlocked
+	this.isUnlocked = isUnlocked;
+
+	return this;
 }
 
 Action.prototype.outcome = function()
