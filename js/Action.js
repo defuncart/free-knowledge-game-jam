@@ -2,6 +2,7 @@
 
 function Action(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction)
 {
+	console.log("Action")
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
