@@ -7,7 +7,6 @@ function calculatePlayerSupport()
 	{
 		temp += (counties[i].playerSupport*1.0)
 	}
-	console.log( "counties.length: " + counties.length )
 	playerSupport = temp / counties.length
 }
 
@@ -43,21 +42,59 @@ function GameEngine()
 
 }
 
+function pause(millis)
+{
+	var date = new Date();
+	var curDate = null;
+	do { curDate = new Date(); }
+	while(curDate-date < millis);
+}
+
 function play()
 {
+
+	console.log("Game Started");
+	calculatePlayerSupport();
+	console.log( playerSupport );
+
 	while( !gameOver )
 	{
+		/*			Player Move 		*/
+		console.log("Player Move");
+
+		var randomAction = -1;
+		do {
+			randomAction = Math.floor(Math.random()*8);
+		} while( (player.actions[randomAction].supportNeeded > playerSupport) ||
+					(randomAction == HACKING_ACTION && !hackerIsUnlocked) || 
+					(randomAction == NEWSPAPERS_ACTION && !printerIsUnlocked) || 
+					(randomAction == ELECTION_ACTION && playerSupport < 50) )
+
+		var randomCountry = Math.floor(Math.random()*8);
+
+		playerGameMove(counties[randomCountry], randomAction);
+
+		//
 		calculatePlayerSupport();
 		console.log( playerSupport );
 
+		if( gameOver ){ break; }
 
-		var randomAction = Math.floor(Math.random()*8)
-		d
+		pause(1000);
 
-		playerGameMove(counties[0], 0);
+		/*			Computer Move 			*/
+		console.log("Computer Move");
+
+		randomCountry = Math.floor(Math.random()*8);
+		computerGameMove(counties[randomCountry]);
+
+		calculatePlayerSupport();
+		console.log( playerSupport );
+
+		pause(1000);
 	}
 
-	
+	console.log("gameOver");
 }
 
 function go()
@@ -81,11 +118,11 @@ function go()
 function playerGameMove(county, action)
 {
 	county.playerSupport += player.actions[action].supportGiven
-	actions[action].outcome()
+	player.actions[action].outcome()
 }
 
 function computerGameMove(county)
 {
-	county.playerSupport -= Math.floor( Math.random() * 3 )
+	county.playerSupport -= Math.floor( Math.random() * 5 )
 	county.playerSupport = ( county.playerSupport < 0 ? 0 : county.playerSupport )
-}
+	}

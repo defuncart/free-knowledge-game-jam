@@ -6,6 +6,14 @@
 	isGlobalAction				boolean
 	isUnlocked					boolean
 */
+var SOCIAL_MEDIA_ACTION = 0
+var GRAFFITI_ACTION = 1
+var SPEAKING_ACTION = 2
+var FLYERS_ACTION = 3
+var DEMO_ACTION = 4
+var ELECTION_ACTION = 5
+var NEWSPAPERS_ACTION = 6
+var HACKING_ACTION = 7
 
 /*						Social Media			*/
 function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
@@ -25,7 +33,7 @@ SocialMedia.prototype.outcome = function()
 
 	if( Math.random() < this.caughtChance )
 	{
-		gameOver();
+		gameOver = true;
 		return;
 	}
 
@@ -75,7 +83,7 @@ Graffiti.prototype.outcome = function()
 
 	if( Math.random() < this.caughtChance )
 	{
-		gameOver();
+		gameOver = true;
 		return;
 	}
 
@@ -125,7 +133,7 @@ Speaking.prototype.outcome = function()
 
 	if( Math.random() < this.caughtChance )
 	{
-		gameOver();
+		gameOver = true;
 		return;
 	}
 
@@ -175,7 +183,7 @@ Flyers.prototype.outcome = function()
 
 	if( Math.random() < this.caughtChance )
 	{
-		gameOver();
+		gameOver = true;
 		return;
 	}
 
@@ -225,7 +233,7 @@ Demo.prototype.outcome = function()
 
 	if( Math.random() < this.caughtChance )
 	{
-		gameOver();
+		gameOver = true;
 		return;
 	}
 
@@ -275,7 +283,7 @@ Election.prototype.outcome = function()
 
 	if( Math.random() < this.caughtChance )
 	{
-		gameOver();
+		gameOver = true;
 		return;
 	}
 
@@ -325,7 +333,7 @@ Newspapers.prototype.outcome = function()
 
 	if( Math.random() < this.caughtChance )
 	{
-		gameOver();
+		gameOver = true;
 		return;
 	}
 
@@ -375,7 +383,7 @@ Hacking.prototype.outcome = function()
 
 	if( Math.random() < this.caughtChance )
 	{
-		gameOver();
+		gameOver = true;
 		return;
 	}
 
