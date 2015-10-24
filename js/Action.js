@@ -15,21 +15,21 @@ Action.prototype.outcome = function()
 	console.log("Action outcome");
 }
 
-Action.prototype.createNewRecruit()
-{
-	//spy, mole, hacker, printer, activist
+// Action.prototype.createNewRecruit()
+// {
+// 	//spy, mole, hacker, printer, activist
 
-	// Math.random() * 
-}
+// 	// Math.random() * 
+// }
 
 /*						Social Media			*/
 
 SocialMedia.prototype = new Action();
 SocialMedia.prototype.constructor = Action
-// function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction)
-// {
-// 	// Action.prototype.
-// }
+function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction)
+{
+	// Action.prototype.
+}
 
 SocialMedia.prototype.outcome = function()
 {
