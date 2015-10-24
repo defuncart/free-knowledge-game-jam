@@ -10,6 +10,7 @@
 /*						Social Media			*/
 function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
+    this.text = "Share knowledge on social media";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -54,14 +55,12 @@ SocialMedia.prototype.outcome = function()
       		}
 		});
 	}
-	
-
-	// TO DO
 }
 
 /*						Graffiti			*/
 function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
+    this.text = "Spray graffiti with an awareness message";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -74,14 +73,44 @@ Graffiti.prototype.outcome = function()
 {
 	console.log("Graffiti outcome");
 
-	Action.prototype.outcome.call(this);
+	if( Math.random() < this.caughtChance )
+	{
+		gameOver();
+		return;
+	}
 
-	// TO DO
+	if( Math.random() < this.recruitmentChance )
+	{
+		var recruit = new Recruit();
+
+		bootbox.dialog({
+  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			title: "You received a message from " + recruit.name,
+  			buttons:
+  			{
+    			no:
+    			{
+      				label: "no",
+      			},
+			    yes:
+			    {
+      				label: "yes",
+      				callback: function()
+      				{
+      					console.log("yes");
+        				player.recruits.push( recruit );
+        				recruit.ability();
+      				}
+      			}
+      		}
+		});
+	}
 }
 
 /*						Speaking			*/
 function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
 {
+    this.text = "Speak to someone";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -94,14 +123,44 @@ Speaking.prototype.outcome = function()
 {
 	console.log("Speaking outcome");
 
-	Action.prototype.outcome.call(this);
+	if( Math.random() < this.caughtChance )
+	{
+		gameOver();
+		return;
+	}
 
-	// TO DO
+	if( Math.random() < this.recruitmentChance )
+	{
+		var recruit = new Recruit();
+
+		bootbox.dialog({
+  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			title: "You received a message from " + recruit.name,
+  			buttons:
+  			{
+    			no:
+    			{
+      				label: "no",
+      			},
+			    yes:
+			    {
+      				label: "yes",
+      				callback: function()
+      				{
+      					console.log("yes");
+        				player.recruits.push( recruit );
+        				recruit.ability();
+      				}
+      			}
+      		}
+		});
+	}
 }
 
 /*						Flyers			*/
 function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
 {
+	this.text = "Spread some flyers";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -114,14 +173,44 @@ Flyers.prototype.outcome = function()
 {
 	console.log("Flyers outcome");
 
-	Action.prototype.outcome.call(this);
+	if( Math.random() < this.caughtChance )
+	{
+		gameOver();
+		return;
+	}
 
-	// TO DO
+	if( Math.random() < this.recruitmentChance )
+	{
+		var recruit = new Recruit();
+
+		bootbox.dialog({
+  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			title: "You received a message from " + recruit.name,
+  			buttons:
+  			{
+    			no:
+    			{
+      				label: "no",
+      			},
+			    yes:
+			    {
+      				label: "yes",
+      				callback: function()
+      				{
+      					console.log("yes");
+        				player.recruits.push( recruit );
+        				recruit.ability();
+      				}
+      			}
+      		}
+		});
+	}
 }
 
 /*						Demo			*/
 function Demo(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
 {
+	this.text = "Organize a demonstration";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -134,14 +223,44 @@ Demo.prototype.outcome = function()
 {
 	console.log("Demo outcome");
 
-	Action.prototype.outcome.call(this);
+	if( Math.random() < this.caughtChance )
+	{
+		gameOver();
+		return;
+	}
 
-	// TO DO
+	if( Math.random() < this.recruitmentChance )
+	{
+		var recruit = new Recruit();
+
+		bootbox.dialog({
+  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			title: "You received a message from " + recruit.name,
+  			buttons:
+  			{
+    			no:
+    			{
+      				label: "no",
+      			},
+			    yes:
+			    {
+      				label: "yes",
+      				callback: function()
+      				{
+      					console.log("yes");
+        				player.recruits.push( recruit );
+        				recruit.ability();
+      				}
+      			}
+      		}
+		});
+	}
 }
 
 /*						Election			*/
 function Election(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
 {
+	this.text = "Candidate for presidental election";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -154,14 +273,44 @@ Election.prototype.outcome = function()
 {
 	console.log("Election outcome");
 
-	Action.prototype.outcome.call(this);
+	if( Math.random() < this.caughtChance )
+	{
+		gameOver();
+		return;
+	}
 
-	// TO DO
+	if( Math.random() < this.recruitmentChance )
+	{
+		var recruit = new Recruit();
+
+		bootbox.dialog({
+  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			title: "You received a message from " + recruit.name,
+  			buttons:
+  			{
+    			no:
+    			{
+      				label: "no",
+      			},
+			    yes:
+			    {
+      				label: "yes",
+      				callback: function()
+      				{
+      					console.log("yes");
+        				player.recruits.push( recruit );
+        				recruit.ability();
+      				}
+      			}
+      		}
+		});
+	}
 }
 
 /*						Newspapers			*/
 function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
+	this.text = "Publish an article on a newspaper";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -174,14 +323,44 @@ Newspapers.prototype.outcome = function()
 {
 	console.log("Newspapers outcome");
 
-	Action.prototype.outcome.call(this);
+	if( Math.random() < this.caughtChance )
+	{
+		gameOver();
+		return;
+	}
 
-	// TO DO
+	if( Math.random() < this.recruitmentChance )
+	{
+		var recruit = new Recruit();
+
+		bootbox.dialog({
+  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			title: "You received a message from " + recruit.name,
+  			buttons:
+  			{
+    			no:
+    			{
+      				label: "no",
+      			},
+			    yes:
+			    {
+      				label: "yes",
+      				callback: function()
+      				{
+      					console.log("yes");
+        				player.recruits.push( recruit );
+        				recruit.ability();
+      				}
+      			}
+      		}
+		});
+	}
 }
 
 /*						Hacking			*/
 function Hacking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
 {
+	this.text = "Hack a governmental website";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -194,7 +373,36 @@ Hacking.prototype.outcome = function()
 {
 	console.log("Hacking outcome");
 
-	Action.prototype.outcome.call(this);
+	if( Math.random() < this.caughtChance )
+	{
+		gameOver();
+		return;
+	}
 
-	// TO DO
+	if( Math.random() < this.recruitmentChance )
+	{
+		var recruit = new Recruit();
+
+		bootbox.dialog({
+  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			title: "You received a message from " + recruit.name,
+  			buttons:
+  			{
+    			no:
+    			{
+      				label: "no",
+      			},
+			    yes:
+			    {
+      				label: "yes",
+      				callback: function()
+      				{
+      					console.log("yes");
+        				player.recruits.push( recruit );
+        				recruit.ability();
+      				}
+      			}
+      		}
+		});
+	}
 }	

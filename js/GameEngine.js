@@ -31,20 +31,34 @@ counties.push( new County("countryside1", 1, 20, 40, 0.15) );
 counties.push( new County("countryside2", 2, 20, 70, 0.12) );
 counties.push( new County("countryside3", 3, 10, 10, 0.12) );
 
-function gameOver()
-{
-	console.log("gameOver")
-	alert("Game Over");
-}
+var gameOver = false
+// function gameOver()
+// {
+// 	console.log("gameOver")
+// 	alert("Game Over");
+// }
 
 function GameEngine()
 {
 
-	
-
 }
 
+function play()
+{
+	while( !gameOver )
+	{
+		calculatePlayerSupport();
+		console.log( playerSupport );
 
+
+		var randomAction = Math.floor(Math.random()*8)
+		d
+
+		playerGameMove(counties[0], 0);
+	}
+
+	
+}
 
 function go()
 {
