@@ -1,5 +1,6 @@
 function Action(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
+	console.log("Action")
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -27,7 +28,10 @@ Action.prototype.outcome = function()
 
 SocialMedia.prototype = new Action();
 SocialMedia.prototype.constructor = Action
-function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) {}
+function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
+{
+	console.log("Social Media")
+}
 
 SocialMedia.prototype.outcome = function()
 {
