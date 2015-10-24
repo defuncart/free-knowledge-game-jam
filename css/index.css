@@ -2,3 +2,18 @@
     display: block;
     margin-bottom: 1em;
 }
+
+#map {
+    position: relative;
+}
+.map-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.map-layer-success {
+    display: none;
+}
+.map-layer-failure {
+    display: none;
+}

@@ -22,14 +22,14 @@ function addRecruit()
 var government = Government();
 
 var counties = [];
-counties.push( new County("capital", 2, 100, 65, 0.13) );
-counties.push( new County("universiy", 1, 80, 50, 0.09) );
-counties.push( new County("financial", 7, 80, 25, 0.07) );
-counties.push( new County("township1", 1, 50, 30, 0.15) );
-counties.push( new County("township2", 2, 40, 15, 0.17) );
-counties.push( new County("countryside1", 1, 20, 40, 0.15) );
-counties.push( new County("countryside2", 2, 20, 70, 0.12) );
-counties.push( new County("countryside3", 3, 10, 10, 0.12) );
+counties.push( new County("capital", "capital", 2, 100, 65, 0.13) );
+counties.push( new County("universiy", "universiy", 1, 80, 50, 0.09) );
+counties.push( new County("financial", "financial", 7, 80, 25, 0.07) );
+counties.push( new County("township1", "township1", 1, 50, 30, 0.15) );
+counties.push( new County("township2", "township2", 2, 40, 15, 0.17) );
+counties.push( new County("countryside1", "countryside1", 1, 20, 40, 0.15) );
+counties.push( new County("countryside2", "countryside2", 2, 20, 70, 0.12) );
+counties.push( new County("countryside3", "countryside3", 3, 10, 10, 0.12) );
 
 var gameOver = false
 // function gameOver()
