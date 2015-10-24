@@ -6,5 +6,5 @@ function County(name, playerSupport, urbanization, persuasibility, votingStrengt
 	this.persuasibility = persuasibility
 	this.votingStrength = votingStrength
 
-	console.log("name: " + name)
+	// console.log("name: " + name)
 }

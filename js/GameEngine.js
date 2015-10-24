@@ -28,3 +28,34 @@ function GameEngine()
 	
 
 }
+
+function go()
+{
+	calculatePlayerSupport();
+	console.log( playerSupport );
+
+	playerGameMove(counties[0], 0);
+
+	calculatePlayerSupport();
+	console.log( playerSupport );
+
+	computerGameMove(counties[0])
+
+	calculatePlayerSupport();
+	console.log( playerSupport );
+}
+
+function playerGameMove(county, action)
+{
+	//player.actions[0]
+
+	county.playerSupport += playerSupport.actions[action].supportGiven
+}
+
+function computerGameMove(county)
+{
+	//player.actions[0]
+
+	county.playerSupport -= Math.floor( Math.random() * 3 )
+	county.playerSupport = ( county.playerSupport < 0 ? 0 : county.playerSupport )
+}
