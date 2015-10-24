@@ -29,3 +29,7 @@ html, body {
 .map-layer-failure {
     display: none;
 }
+
+#progress_bar {
+    overflow: hidden;
+}

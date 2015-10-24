@@ -22,7 +22,16 @@ function update_map(region_id, player_support) {
     }
 }
 
-function random_coloring() {
+function update_progress(player_support) {
+    $('#progress_bar').css('width', player_support + 'px');
+}
+
+function random_progress() {  // just for testing purposes
+    update_progress(Math.floor((Math.random() * 100)));
+    setTimeout(random_progress, 1000);
+}
+
+function random_coloring() {  // just for testing purposes
     $(counties).each(function(i, el) {
         update_map(el.id, Math.floor((Math.random() * 100)));
     });
@@ -38,6 +47,7 @@ $(function() {
         alert($(this).text());
     });    
     
-    // test colouring
+    // test colouring and progress
     random_coloring();
+    random_progress();
 });
