@@ -22,7 +22,7 @@ var government = Government();
 
 var counties = [];
 counties.push( new County("capital", "capital", 2, 100, 65, 0.13) );
-counties.push( new County("universiy", "universiy", 1, 80, 50, 0.09) );
+counties.push( new County("university", "university", 1, 80, 50, 0.09) );
 counties.push( new County("financial", "financial", 7, 80, 25, 0.07) );
 counties.push( new County("township1", "township1", 1, 50, 30, 0.15) );
 counties.push( new County("township2", "township2", 2, 40, 15, 0.17) );
