@@ -2,7 +2,7 @@ var player = new Player();
 var playerSupport = 0 // 0 to 100
 function calculatePlayerSupport()
 {
-	var temp;
+	var temp = 0;
 	for(i=0; i < counties.length; i++)
 	{
 		temp += (counties[i].playerSupport*1.0)
