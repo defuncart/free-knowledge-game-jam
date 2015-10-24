@@ -7,6 +7,7 @@ function calculatePlayerSupport()
 	{
 		temp += counties[i].playerSupport
 	}
+	console.log( "counties.length: " + counties.length )
 	playerSupport = temp / counties.length
 }
 
