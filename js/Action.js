@@ -1,5 +1,6 @@
 function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
+    this.text = "Share knowledge on social media";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -26,6 +27,7 @@ SocialMedia.prototype.outcome = function()
 /*						Graffiti			*/
 function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
+    this.text = "Spray graffiti with an awareness message";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -46,6 +48,7 @@ Graffiti.prototype.outcome = function()
 /*						Speaking			*/
 function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
 {
+    this.text = "Speak to someone";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -66,6 +69,7 @@ Speaking.prototype.outcome = function()
 /*						Flyers			*/
 function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
 {
+	this.text = "Spread some flyers";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -86,6 +90,7 @@ Flyers.prototype.outcome = function()
 /*						Demo			*/
 function Demo(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
 {
+	this.text = "Organize a demonstration";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -106,6 +111,7 @@ Demo.prototype.outcome = function()
 /*						Election			*/
 function Election(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
 {
+	this.text = "Candidate for presidental election";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -126,6 +132,7 @@ Election.prototype.outcome = function()
 /*						Newspapers			*/
 function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
 {
+	this.text = "Publish an article on a newspaper";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
@@ -146,6 +153,7 @@ Newspapers.prototype.outcome = function()
 /*						Hacking			*/
 function Hacking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
 {
+	this.text = "Hack a governmental website";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
