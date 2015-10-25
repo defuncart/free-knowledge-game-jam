@@ -6,6 +6,7 @@ h2 {
     color: #fff;
 }
 #main-container {
+    width: 940px!important;
     height: 100%;
     padding-top: 100px;
     background: url("../img/bg.png") no-repeat top center;
