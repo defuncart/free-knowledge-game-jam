@@ -1,0 +1,56 @@
+html, body {
+    height: 100%;
+    background: #5a1c16;
+}
+h2 {
+    color: #fff;
+}
+#main-container {
+    width: 940px!important;
+    height: 100%;
+    padding-top: 100px;
+    background: url("../img/bg.png") no-repeat top center;
+    background-size: 100%;
+}
+
+#actions .btn {
+    display: block;
+    margin-bottom: 1em;
+}
+
+#map {
+    position: relative;
+}
+.map-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.map-layer-success {
+    display: none;
+}
+.map-layer-failure {
+    display: none;
+}
+
+.progress_bar_container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.progress_bar_wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+#progress_bar {
+    background: url("../img/progress_bar.png");
+    height: 100%;
+    background-size: cover;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;    
+}
