@@ -39,7 +39,7 @@ SocialMedia.prototype.outcome = function(county)
 	if( Math.random() < this.caughtChance )
 	{
 		gameOver = true;
-		return;
+		return "gameOver";
 	}
 
 	if( Math.random() < this.recruitmentChance )

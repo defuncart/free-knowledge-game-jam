@@ -72,82 +72,83 @@ function pause(millis)
 	while(curDate-date < millis);
 }
 
-function play()
-{
+// function play()
+// {
 
-	console.log("Game Started");
-	calculatePlayerSupport();
-	console.log( playerSupport );
+// 	console.log("Game Started");
+// 	calculatePlayerSupport();
+// 	console.log( playerSupport );
 
-	while( !gameOver )
-	{
-		/*			Player Move 		*/
-		console.log("Player Move");
+// 	while( !gameOver )
+// 	{
+// 		/*			Player Move 		*/
+// 		console.log("Player Move");
 
-		var randomAction = -1;
-		do {
-			randomAction = Math.floor(Math.random()*player.actions.length);
-		} while( (player.actions[randomAction].supportNeeded > playerSupport) ||
-					(randomAction == HACKING_ACTION && !hackerIsUnlocked) || 
-					(randomAction == NEWSPAPERS_ACTION && !printerIsUnlocked) || 
-					(randomAction == ELECTION_ACTION && playerSupport < 50) )
+// 		var randomAction = -1;
+// 		do {
+// 			randomAction = Math.floor(Math.random()*player.actions.length);
+// 		} while( (player.actions[randomAction].supportNeeded > playerSupport) ||
+// 					(randomAction == HACKING_ACTION && !hackerIsUnlocked) || 
+// 					(randomAction == NEWSPAPERS_ACTION && !printerIsUnlocked) || 
+// 					(randomAction == ELECTION_ACTION && playerSupport < 50) )
 
-		if( player.actions[randomAction].isGlobal )
-		{
-			for(var i=0; i < counties.length; i++)
-			{
-				playerGameMove(randomAction, counties[i]);
-			}
-		}
-		else
-		{
-			var randomCountry = Math.floor(Math.random()*counties.length);
-			playerGameMove(randomAction, counties[randomCountry]);
-		}
+// 		if( player.actions[randomAction].isGlobal )
+// 		{
+// 			for(var i=0; i < counties.length; i++)
+// 			{
+// 				playerGameMove(randomAction, counties[i]);
+// 			}
+// 		}
+// 		else
+// 		{
+// 			var randomCountry = Math.floor(Math.random()*counties.length);
+// 			playerGameMove(randomAction, counties[randomCountry]);
+// 		}
 
-		//
-		calculatePlayerSupport();
-		console.log( playerSupport );
+// 		//
+// 		calculatePlayerSupport();
+// 		console.log( playerSupport );
 
-		if( gameOver ){ break; }
+// 		if( gameOver ){ break; }
 
-		pause(1000);
+// 		pause(1000);
 
-		/*			Computer Move 			*/
-		console.log("Computer Move");
+// 		/*			Computer Move 			*/
+// 		console.log("Computer Move");
 
-		randomCountry = Math.floor(Math.random()*8);
-		computerGameMove(counties[randomCountry]);
+// 		randomCountry = Math.floor(Math.random()*8);
+// 		computerGameMove(counties[randomCountry]);
 
-		calculatePlayerSupport();
-		console.log( playerSupport );
+// 		calculatePlayerSupport();
+// 		console.log( playerSupport );
 
-		pause(1000);
-	}
+// 		pause(1000);
+// 	}
 
-	console.log("gameOver");
-}
+// 	console.log("gameOver");
+// }
 
-function go()
-{
-	calculatePlayerSupport();
-	console.log( playerSupport );
+// function go()
+// {
+// 	calculatePlayerSupport();
+// 	console.log( playerSupport );
 
-	console.log( counties[0].name )
+// 	console.log( counties[0].name )
 
-	playerGameMove(counties[0], 0);
+// 	playerGameMove(counties[0], 0);
 
-	calculatePlayerSupport();
-	console.log( playerSupport );
+// 	calculatePlayerSupport();
+// 	console.log( playerSupport );
 
-	computerGameMove(counties[0])
+// 	computerGameMove(counties[0])
 
-	calculatePlayerSupport();
-	console.log( playerSupport );
-}
+// 	calculatePlayerSupport();
+// 	console.log( playerSupport );
+// }
 
 GameEngine.prototype.playerGameMove = function(action)
 {
+	console.log("yyyy")
 	for(var i=0; i < counties.length; i++)
 	{
 		//playerGameMove(action, counties[i]);
@@ -160,21 +161,22 @@ GameEngine.prototype.playerGameMove = function(action, county)
 {
 	var result = action.outcome( county );
 	console.log(result);
+	return result;
 }
 
-function playerGameMove(action, county)
-{
-	var result = player.actions[action].outcome( county );
-	console.log(result);
-}
+// function playerGameMove(action, county)
+// {
+// 	var result = player.actions[action].outcome( county );
+// 	console.log(result);
+// }
 
-function pm()
-{
-	var randomAction = Math.floor( Math.random()*8 );
-	var randomCountry = Math.floor( Math.random()*8 );
-	var result = player.actions[randomAction].outcome(counties[randomCountry]);
-	console.log(result);
-}
+// function pm()
+// {
+// 	var randomAction = Math.floor( Math.random()*8 );
+// 	var randomCountry = Math.floor( Math.random()*8 );
+// 	var result = player.actions[randomAction].outcome(counties[randomCountry]);
+// 	console.log(result);
+// }
 
 function computerGameMove()
 {
