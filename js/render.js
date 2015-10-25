@@ -2,7 +2,7 @@ var gameEngine = new GameEngine();
 
 var actionMap = {};
 $(player.actions).each(function(i, el) {
-        actionMap[el.id] = el;
+    actionMap[el.id] = el;
 });
 
 
@@ -34,6 +34,19 @@ function update_progress(player_support) {
     $('#progress_bar').css('width', player_support + '%');
 }
 
+function print_news(text) {
+    $('#paperText').text(text);
+}
+
+function update_game_status() {
+    console.info('playerSupport', playerSupport);
+    update_progress(playerSupport);
+    $(counties).each(function(i, el) {
+        console.info('playerSupport in ' + el.name, el.playerSupport);
+        update_map(el.id, el.playerSupport);
+    });
+}
+
 function random_progress() {  // just for testing purposes
     update_progress(Math.floor((Math.random() * 100)));
     setTimeout(random_progress, 1000);
@@ -49,6 +62,7 @@ function random_coloring() {  // just for testing purposes
 
 $(function() {
     render_actions();
+    update_game_status();
 
     $('#actions').on('click', 'img', function(e) {
         // e.preventDefault();
@@ -76,7 +90,8 @@ $(function() {
                             // player.recruits.push( recruit );
                             // recruit.ability();
 
-                            gameEngine.playerGameMove(action);  
+                            gameEngine.playerGameMove(action);
+                            update_game_status();
                         }
                     }
                 }
@@ -106,7 +121,8 @@ $(function() {
                         callback: function()
                         {
                             var index = $('#counties').val();
-                            gameEngine.playerGameMove(action, counties[index]);  
+                            gameEngine.playerGameMove(action, counties[index]);
+                            update_game_status();
                         }
                     }
                 }
@@ -118,6 +134,6 @@ $(function() {
   
     
     // test colouring and progress
-    random_coloring();
-    random_progress();
+    //random_coloring();
+    //random_progress();
 });
