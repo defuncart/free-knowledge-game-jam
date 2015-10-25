@@ -10,6 +10,7 @@ function County(id, name, playerSupport, urbanization, persuasibility, votingStr
 {
 	this.id = id;
 	this.name = name;
+	this.icon = "img/counties(actions)/" + name + ".png"
 	this.playerSupport = playerSupport;
 	this.urbanization = urbanization;
 	this.persuasibility = persuasibility;

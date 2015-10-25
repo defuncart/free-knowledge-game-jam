@@ -11,9 +11,13 @@ function render_actions() {
     $actions.html('');
     $(player.actions).each(function(i, el) {
         var $action;
-        //if ((playerSupport >= el.supportNeeded) && el.isUnlocked) {
-            $actions.append('<img alt="" title="' + el.text + '" src="img/icon_' + el.id + '.png" data-id="' + el.id + '" />');
-        //}
+        if ((playerSupport >= el.supportNeeded) && el.isUnlocked) {
+            $actions.append('<img alt="" class="active" title="' + el.text + '" src="img/actions/icon_' + el.id + '.png" data-id="' + el.id + '" />');
+        }
+        else
+        {
+            $actions.append('<img alt="" title="' + el.text + '" src="img/actions_disabled/icon_' + el.id + '_disabled.png" data-id="' + el.id + '" />');
+        }
     });
 }
 
@@ -50,7 +54,7 @@ function random_coloring() {  // just for testing purposes
 $(function() {
     render_actions();
 
-    $('#actions').on('click', 'img', function(e) {
+    $('#actions').on('click', 'img.active', function(e) {
         // e.preventDefault();
         // alert($(this).data('id'));
 
@@ -84,29 +88,73 @@ $(function() {
         }
         else
         {
-            var message =  '<select id="counties">'
-            for(var i=0; i < counties.length; i++)
-            {
-                message += "<option value="+i+">"+counties[i].name+"</option>"
-            }
-            message += "</select>";
-
             bootbox.dialog({
-                message: message,
+                message: action.message,
                 title: action.text,
                 buttons:
                 {
-                    no:
+                    county1:
                     {
-                        label: "no",
-                    },
-                    yes:
-                    {
-                        label: "yes",
+                        label: '<img src="'+counties[0].icon+'"/>',
                         callback: function()
                         {
-                            var index = $('#counties').val();
-                            gameEngine.playerGameMove(action, counties[index]);  
+                            gameEngine.playerGameMove(action, counties[0]);
+                        }
+                    },
+                    county2:
+                    {
+                        label: '<img src="'+counties[1].icon+'"/>',
+                        callback: function()
+                        {
+                            gameEngine.playerGameMove(action, counties[1]);
+                        }
+                    },
+                    county3:
+                    {
+                        label: '<img src="'+counties[2].icon+'"/>',
+                        callback: function()
+                        {
+                            gameEngine.playerGameMove(action, counties[2]);
+                        }
+                    },
+                    county4:
+                    {
+                        label: '<img src="'+counties[3].icon+'"/>',
+                        callback: function()
+                        {
+                            gameEngine.playerGameMove(action, counties[3]);
+                        }
+                    },
+                    county5:
+                    {
+                        label: '<img src="'+counties[4].icon+'"/>',
+                        callback: function()
+                        {
+                            gameEngine.playerGameMove(action, counties[4]);
+                        }
+                    },
+                    county6:
+                    {
+                        label: '<img src="'+counties[5].icon+'"/>',
+                        callback: function()
+                        {
+                            gameEngine.playerGameMove(action, counties[5]);
+                        }
+                    },
+                    county7:
+                    {
+                        label: '<img src="'+counties[6].icon+'"/>',
+                        callback: function()
+                        {
+                            gameEngine.playerGameMove(action, counties[6]);
+                        }
+                    },
+                    county8:
+                    {
+                        label: '<img src="'+counties[7].icon+'"/>',
+                        callback: function()
+                        {
+                            gameEngine.playerGameMove(action, counties[7]);
                         }
                     }
                 }
@@ -121,3 +169,8 @@ $(function() {
     random_coloring();
     random_progress();
 });
+
+function myFunction()
+{
+    console.log("here");
+}
