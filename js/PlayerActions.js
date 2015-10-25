@@ -4,7 +4,7 @@
 	recruitmentChance			0.0 - 1.0
 	caughtChance				0.0	- 1.0
 	backfireChance				0.0 - 1.0
-	isGlobalAction				boolean
+	isGlobal				boolean
 	isUnlocked					boolean
 */
 var SOCIAL_MEDIA_ACTION = 0
@@ -12,22 +12,23 @@ var GRAFFITI_ACTION = 1
 var SPEAKING_ACTION = 2
 var FLYERS_ACTION = 3
 var DEMO_ACTION = 4
-var ELECTION_ACTION = 5
-var NEWSPAPERS_ACTION = 6
-var HACKING_ACTION = 7
+var NEWSPAPERS_ACTION = 5
+var HACKING_ACTION = 6
+var ELECTION_ACTION = 7
 
 /*						Social Media			*/
-function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked)
+function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobal, isUnlocked)
 {
     this.id = "socialmedia";
     this.text = "Share knowledge on social media";
     this.resultText = "You shared an article via Social Media."
+    // this.index = SOCIAL_MEDIA_ACTION;
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
 	this.backfireChance = backfireChance;
-	this.isGlobalAction = isGlobalAction;
+	this.isGlobal = isGlobal;
 	this.isUnlocked = isUnlocked;
 }
 
@@ -46,7 +47,7 @@ SocialMedia.prototype.outcome = function(county)
 		var recruit = new Recruit();
 
 		bootbox.dialog({
-  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
+  			message: "<img src="+recruit.avatar+" width=100 height=100>" + recruit.text,
   			title: "You received a message from " + recruit.name,
   			buttons:
   			{
@@ -84,7 +85,7 @@ SocialMedia.prototype.outcome = function(county)
 }
 
 /*						Graffiti			*/
-function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked)
+function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobal, isUnlocked)
 {
     this.id = "graffiti";
     this.text = "Spray graffiti with an awareness message";
@@ -94,7 +95,7 @@ function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, 
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
 	this.backfireChance = backfireChance;
-	this.isGlobalAction = isGlobalAction;
+	this.isGlobal = isGlobal;
 	this.isUnlocked = isUnlocked;
 }
 
@@ -151,7 +152,7 @@ Graffiti.prototype.outcome = function(county)
 }
 
 /*						Speaking			*/
-function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
+function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobal, isUnlocked) 
 {
     this.id = "speaking";
     this.text = "Speak to someone";
@@ -161,7 +162,7 @@ function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, 
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
 	this.backfireChance = backfireChance;
-	this.isGlobalAction = isGlobalAction;
+	this.isGlobal = isGlobal;
 	this.isUnlocked = isUnlocked;
 }
 
@@ -218,7 +219,7 @@ Speaking.prototype.outcome = function(county)
 }
 
 /*						Flyers			*/
-function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
+function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobal, isUnlocked) 
 {
     this.id = "flyers";
 	this.text = "Spread some flyers";
@@ -228,7 +229,7 @@ function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, ba
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
 	this.backfireChance = backfireChance;
-	this.isGlobalAction = isGlobalAction;
+	this.isGlobal = isGlobal;
 	this.isUnlocked = isUnlocked;
 }
 
@@ -285,7 +286,7 @@ Flyers.prototype.outcome = function(county)
 }
 
 /*						Demo			*/
-function Demo(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
+function Demo(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobal, isUnlocked) 
 {
     this.id = "demo";
 	this.text = "Organize a demonstration";
@@ -295,7 +296,7 @@ function Demo(supportNeeded, supportGiven, recruitmentChance, caughtChance, back
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
 	this.backfireChance = backfireChance;
-	this.isGlobalAction = isGlobalAction;
+	this.isGlobal = isGlobal;
 	this.isUnlocked = isUnlocked;
 }
 
@@ -351,75 +352,8 @@ Demo.prototype.outcome = function(county)
 	return returnText;
 }
 
-/*						Election			*/
-function Election(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
-{
-    this.id = "election";
-	this.text = "Candidate for presidental election";
-	this.resultText = "A presidental nominanee has been selected from your party.";
-	this.supportNeeded = supportNeeded;
-	this.supportGiven = supportGiven;
-	this.recruitmentChance = recruitmentChance;
-	this.caughtChance = caughtChance;
-	this.backfireChance = backfireChance;
-	this.isGlobalAction = isGlobalAction;
-	this.isUnlocked = isUnlocked;
-}
-
-Election.prototype.outcome = function(county)
-{
-	console.log("Election outcome");
-
-	if( Math.random() < this.caughtChance )
-	{
-		gameOver = true;
-		return;
-	}
-
-	if( Math.random() < this.recruitmentChance )
-	{
-		var recruit = new Recruit();
-
-		bootbox.dialog({
-  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
-  			title: "You received a message from " + recruit.name,
-  			buttons:
-  			{
-    			no:
-    			{
-      				label: "no",
-      			},
-			    yes:
-			    {
-      				label: "yes",
-      				callback: function()
-      				{
-      					console.log("yes");
-        				player.recruits.push( recruit );
-        				recruit.ability();
-      				}
-      			}
-      		}
-		});
-	}
-
-	var returnText = this.resultText;
-	if( Math.random() < this.backfireChance )
-	{
-		county.playerSupport = 5;
-		returnText += " This has backfired and you have lost the election."
-	}
-	else
-	{
-		returnText += " You have won the election!"
-		gameOver = true;
-	}
-	
-	return returnText;
-}
-
 /*						Newspapers			*/
-function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked)
+function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobal, isUnlocked)
 {
     this.id = "newspapers";
 	this.text = "Publish an article on a newspaper";
@@ -429,7 +363,7 @@ function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
 	this.backfireChance = backfireChance;
-	this.isGlobalAction = isGlobalAction;
+	this.isGlobal = isGlobal;
 	this.isUnlocked = isUnlocked;
 }
 
@@ -486,7 +420,7 @@ Newspapers.prototype.outcome = function(county)
 }
 
 /*						Hacking			*/
-function Hacking(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
+function Hacking(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobal, isUnlocked) 
 {
     this.id = "hacking";
 	this.text = "Hack a governmental website";
@@ -496,7 +430,7 @@ function Hacking(supportNeeded, supportGiven, recruitmentChance, caughtChance, b
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
 	this.backfireChance = backfireChance;
-	this.isGlobalAction = isGlobalAction;
+	this.isGlobal = isGlobal;
 	this.isUnlocked = isUnlocked;
 }
 
@@ -550,4 +484,71 @@ Hacking.prototype.outcome = function(county)
 	}
 	county.testBounds();
 	return returnText;
-}	
+}
+
+/*						Election			*/
+function Election(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobal, isUnlocked) 
+{
+    this.id = "election";
+	this.text = "Candidate for presidental election";
+	this.resultText = "A presidental nominanee has been selected from your party.";
+	this.supportNeeded = supportNeeded;
+	this.supportGiven = supportGiven;
+	this.recruitmentChance = recruitmentChance;
+	this.caughtChance = caughtChance;
+	this.backfireChance = backfireChance;
+	this.isGlobal = isGlobal;
+	this.isUnlocked = isUnlocked;
+}
+
+Election.prototype.outcome = function(county)
+{
+	console.log("Election outcome");
+
+	if( Math.random() < this.caughtChance )
+	{
+		gameOver = true;
+		return;
+	}
+
+	if( Math.random() < this.recruitmentChance )
+	{
+		var recruit = new Recruit();
+
+		bootbox.dialog({
+  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
+  			title: "You received a message from " + recruit.name,
+  			buttons:
+  			{
+    			no:
+    			{
+      				label: "no",
+      			},
+			    yes:
+			    {
+      				label: "yes",
+      				callback: function()
+      				{
+      					console.log("yes");
+        				player.recruits.push( recruit );
+        				recruit.ability();
+      				}
+      			}
+      		}
+		});
+	}
+
+	var returnText = this.resultText;
+	if( Math.random() < this.backfireChance )
+	{
+		county.playerSupport = 5;
+		returnText += " This has backfired and you have lost the election."
+	}
+	else
+	{
+		returnText += " You have won the election!"
+		gameOver = true;
+	}
+	
+	return returnText;
+}

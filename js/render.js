@@ -1,11 +1,19 @@
+var gameEngine = new GameEngine();
+
+var actionMap = {};
+$(player.actions).each(function(i, el) {
+        actionMap[el.id] = el;
+});
+
+
 function render_actions() {
     var $actions = $('#actions');
     $actions.html('');
     $(player.actions).each(function(i, el) {
         var $action;
-        if ((playerSupport >= el.supportNeeded) && el.isUnlocked) {
+        //if ((playerSupport >= el.supportNeeded) && el.isUnlocked) {
             $actions.append('<img alt="" title="' + el.text + '" src="img/icon_' + el.id + '.png" data-id="' + el.id + '" />');
-        }
+        //}
     });
 }
 
@@ -43,9 +51,71 @@ $(function() {
     render_actions();
 
     $('#actions').on('click', 'img', function(e) {
-        e.preventDefault();
-        alert($(this).data('id'));
-    });    
+        // e.preventDefault();
+        // alert($(this).data('id'));
+
+        var action = actionMap[$(this).data('id')];
+
+        if( action.isGlobal )
+        {
+            bootbox.dialog({
+                message: "Would you like to proceed?",
+                title: action.text,
+                buttons:
+                {
+                    no:
+                    {
+                        label: "no",
+                    },
+                    yes:
+                    {
+                        label: "yes",
+                        callback: function()
+                        {
+                            console.log("yes");
+                            // player.recruits.push( recruit );
+                            // recruit.ability();
+
+                            gameEngine.playerGameMove(action);  
+                        }
+                    }
+                }
+            }); 
+        }
+        else
+        {
+            var message =  '<select id="counties">'
+            for(var i=0; i < counties.length; i++)
+            {
+                message += "<option value="+i+">"+counties[i].name+"</option>"
+            }
+            message += "</select>";
+
+            bootbox.dialog({
+                message: message,
+                title: action.text,
+                buttons:
+                {
+                    no:
+                    {
+                        label: "no",
+                    },
+                    yes:
+                    {
+                        label: "yes",
+                        callback: function()
+                        {
+                            var index = $('#counties').val();
+                            gameEngine.playerGameMove(action, counties[index]);  
+                        }
+                    }
+                }
+            });
+        }
+
+    });  
+
+  
     
     // test colouring and progress
     random_coloring();
