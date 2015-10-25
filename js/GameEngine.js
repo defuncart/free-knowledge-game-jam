@@ -146,7 +146,7 @@ function pause(millis)
 // 	console.log( playerSupport );
 // }
 
-GameEngine.prototype.playerGameMove = function(action)
+function playerGameMove(action)
 {
 	console.log("yyyy")
 	for(var i=0; i < counties.length; i++)
@@ -155,13 +155,32 @@ GameEngine.prototype.playerGameMove = function(action)
 		var result = action.outcome( counties[i] );
 		console.log(result);
 	}
+	return action.resultText;
 }
 
-GameEngine.prototype.playerGameMove = function(action, county)
+function playerGameMoveCounty(action, county)
 {
 	var result = action.outcome( county );
 	console.log(result);
+
+	automateComputerMove();
+
 	return result;
+}
+
+function automateComputerMove()
+{
+	calculatePlayerSupport();
+	console.log( playerSupport );
+
+	pause(2000);
+
+	computerGameMove();
+
+	calculatePlayerSupport();
+	console.log( playerSupport );
+
+	pause(2000);
 }
 
 // function playerGameMove(action, county)
@@ -193,11 +212,15 @@ function computerGameMove()
 			var result = government.actions[randomAction].outcome( counties[i] );
 			console.log(result);
 		}
+		//return government.actions[randomAction].resultText;
+		print_news(government.actions[randomAction].resultText);
 	}
 	else
 	{
 		var randomCountry = Math.floor(Math.random()*counties.length);
 		var result = government.actions[randomAction].outcome( counties[randomCountry] );
 		console.log(result);
+		print_news(result);
+		//return result;
 	}
 }

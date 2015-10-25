@@ -16,7 +16,8 @@ function render_actions() {
         }
         else
         {
-            $actions.append('<img alt="" title="' + el.text + '" src="img/actions_disabled/icon_' + el.id + '_disabled.png" data-id="' + el.id + '" />');
+            //$actions.append('<img alt="" title="' + el.text + '" src="img/actions_disabled/icon_' + el.id + '_disabled.png" data-id="' + el.id + '" />');
+            $actions.append('<img alt="" title="' + el.text + '" src="img/actions/icon_' + el.id + '.png" data-id="' + el.id + '" />');
         }
     });
 }
@@ -87,7 +88,7 @@ $(function() {
         if( action.isGlobal )
         {
             bootbox.dialog({
-                message: "Would you like to proceed?",
+                message: action.message + " Would you like to proceed?",
                 title: action.text,
                 buttons:
                 {
@@ -100,8 +101,8 @@ $(function() {
                         label: "yes",
                         callback: function()
                         {
-                            gameEngine.playerGameMove(action);
-                            //print_news("to");
+                            var result = playerGameMove(action);
+                            print_news(result);
                             update_game_status();
                         }
                     }
@@ -120,11 +121,10 @@ $(function() {
                         label: '<img src="'+counties[0].icon+'"/>',
                         callback: function()
                         {
-                            var result = gameEngine.playerGameMove(action, counties[0]);
-                            console.log("ggggggggg\n")
-                            console.log(result);
+                            var result = playerGameMoveCounty(action, counties[0]);
                             print_news(result);
                             update_game_status();
+                            // automateComputerMove();
                         }
                     },
                     county2:
@@ -132,7 +132,8 @@ $(function() {
                         label: '<img src="'+counties[1].icon+'"/>',
                         callback: function()
                         {
-                            gameEngine.playerGameMove(action, counties[1]);
+                            var result = playerGameMoveCounty(action, counties[1]);
+                            print_news(result);
                             update_game_status();
                         }
                     },
@@ -141,7 +142,8 @@ $(function() {
                         label: '<img src="'+counties[2].icon+'"/>',
                         callback: function()
                         {
-                            gameEngine.playerGameMove(action, counties[2]);
+                            var result = playerGameMoveCounty(action, counties[2]);
+                            print_news(result);
                             update_game_status();
                         }
                     },
@@ -150,7 +152,8 @@ $(function() {
                         label: '<img src="'+counties[3].icon+'"/>',
                         callback: function()
                         {
-                            gameEngine.playerGameMove(action, counties[3]);
+                            var result = playerGameMoveCounty(action, counties[3]);
+                            print_news(result);
                             update_game_status();
                         }
                     },
@@ -159,7 +162,8 @@ $(function() {
                         label: '<img src="'+counties[4].icon+'"/>',
                         callback: function()
                         {
-                            gameEngine.playerGameMove(action, counties[4]);
+                            var result = playerGameMoveCounty(action, counties[4]);
+                            print_news(result);
                             update_game_status();
                         }
                     },
@@ -168,7 +172,8 @@ $(function() {
                         label: '<img src="'+counties[5].icon+'"/>',
                         callback: function()
                         {
-                            gameEngine.playerGameMove(action, counties[5]);
+                            var result = playerGameMoveCounty(action, counties[5]);
+                            print_news(result);
                             update_game_status();
                         }
                     },
@@ -177,7 +182,8 @@ $(function() {
                         label: '<img src="'+counties[6].icon+'"/>',
                         callback: function()
                         {
-                            gameEngine.playerGameMove(action, counties[6]);
+                            var result = playerGameMoveCounty(action, counties[6]);
+                            print_news(result);
                             update_game_status();
                         }
                     },
@@ -186,7 +192,8 @@ $(function() {
                         label: '<img src="'+counties[7].icon+'"/>',
                         callback: function()
                         {
-                            gameEngine.playerGameMove(action, counties[7]);
+                            var result = playerGameMoveCounty(action, counties[7]);
+                            print_news(result);
                             update_game_status();
                         }
                     }

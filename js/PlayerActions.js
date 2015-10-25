@@ -48,6 +48,7 @@ SocialMedia.prototype.outcome = function(county)
 
 		bootbox.dialog({
   			message: "<img src="+recruit.avatar+" width=100 height=100>" + recruit.text,
+
   			title: "You received a message from " + recruit.name,
   			buttons:
   			{
