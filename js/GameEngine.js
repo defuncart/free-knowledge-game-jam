@@ -18,7 +18,7 @@ function addRecruit()
 	player.recruits.push( recruit );
 }
 
-var government = Government();
+var government = new Government();
 
 var counties = [];
 counties.push( new County("capital", "capital", 2, 100, 65, 0.13) );
@@ -64,15 +64,24 @@ function play()
 
 		var randomAction = -1;
 		do {
-			randomAction = Math.floor(Math.random()*8);
+			randomAction = Math.floor(Math.random()*player.actions.length);
 		} while( (player.actions[randomAction].supportNeeded > playerSupport) ||
 					(randomAction == HACKING_ACTION && !hackerIsUnlocked) || 
 					(randomAction == NEWSPAPERS_ACTION && !printerIsUnlocked) || 
 					(randomAction == ELECTION_ACTION && playerSupport < 50) )
 
-		var randomCountry = Math.floor(Math.random()*8);
-
-		playerGameMove(counties[randomCountry], randomAction);
+		if( player.actions[randomAction].isGlobalAction )
+		{
+			for(var i=0; i < counties.length; i++)
+			{
+				playerGameMove(randomAction, counties[i]);
+			}
+		}
+		else
+		{
+			var randomCountry = Math.floor(Math.random()*counties.length);
+			playerGameMove(randomAction, counties[randomCountry]);
+		}
 
 		//
 		calculatePlayerSupport();
@@ -115,14 +124,40 @@ function go()
 	console.log( playerSupport );
 }
 
-function playerGameMove(county, action)
+function playerGameMove(action, county)
 {
-	county.playerSupport += player.actions[action].supportGiven
-	player.actions[action].outcome()
+	var result = player.actions[action].outcome( county );
+	console.log(result);
 }
 
-function computerGameMove(county)
+function pm()
 {
-	county.playerSupport -= Math.floor( Math.random() * 5 )
-	county.playerSupport = ( county.playerSupport < 0 ? 0 : county.playerSupport )
+	var randomAction = Math.floor( Math.random()*8 );
+	var randomCountry = Math.floor( Math.random()*8 );
+	var result = player.actions[randomAction].outcome(counties[randomCountry]);
+	console.log(result);
+}
+
+function computerGameMove()
+{
+	var governmentSupport = 100 - playerSupport;
+	var randomAction = -1;
+	do {
+		randomAction = Math.floor(Math.random()*government.actions.length);
+	} while( government.actions[randomAction].supportNeeded > governmentSupport )
+
+	if( government.actions[randomAction].isGlobalAction )
+	{
+		for(var i=0; i < counties.length; i++)
+		{
+			var result = government.actions[randomAction].outcome( counties[i] );
+			console.log(result);
+		}
 	}
+	else
+	{
+		var randomCountry = Math.floor(Math.random()*counties.length);
+		var result = government.actions[randomAction].outcome( counties[randomCountry] );
+		console.log(result);
+	}
+}
