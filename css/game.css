@@ -1,6 +1,10 @@
 html, body {
     height: 100%;
-    background: #5a1c16;
+    background: #5a1c16 url("../img/bg_game.png");
+}
+.game_title {
+    height: 70px;
+    margin-bottom: 20px;
 }
 h2 {
     color: #fff;
@@ -8,9 +12,6 @@ h2 {
 #main-container {
     width: 940px!important;
     height: 100%;
-    padding-top: 100px;
-    background: url("../img/bg.png") no-repeat top center;
-    background-size: 100%;
 }
 
 #actions .btn {
