@@ -15,3 +15,9 @@ function County(id, name, playerSupport, urbanization, persuasibility, votingStr
 	this.persuasibility = persuasibility;
 	this.votingStrength = votingStrength;
 }
+
+County.prototype.testBounds = function()
+{
+	if(this.playerSupport > 100){ this.playerSupport = 100; }
+	if(this.playerSupport < 0){ this.playerSupport = 0; }
+}

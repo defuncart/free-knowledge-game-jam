@@ -3,6 +3,7 @@
 	supportGiven				0 - 100
 	recruitmentChance			0.0 - 1.0
 	caughtChance				0.0	- 1.0
+	backfireChance				0.0 - 1.0
 	isGlobalAction				boolean
 	isUnlocked					boolean
 */
@@ -16,19 +17,21 @@ var NEWSPAPERS_ACTION = 6
 var HACKING_ACTION = 7
 
 /*						Social Media			*/
-function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
+function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked)
 {
     this.id = "socialmedia";
     this.text = "Share knowledge on social media";
+    this.resultText = "You shared an article via Social Media."
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
+	this.backfireChance = backfireChance;
 	this.isGlobalAction = isGlobalAction;
 	this.isUnlocked = isUnlocked;
 }
 
-SocialMedia.prototype.outcome = function()
+SocialMedia.prototype.outcome = function(county)
 {
 	console.log("SocialMedia outcome");
 
@@ -43,7 +46,7 @@ SocialMedia.prototype.outcome = function()
 		var recruit = new Recruit();
 
 		bootbox.dialog({
-  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
   			title: "You received a message from " + recruit.name,
   			buttons:
   			{
@@ -64,22 +67,38 @@ SocialMedia.prototype.outcome = function()
       		}
 		});
 	}
+
+	var returnText = this.resultText;
+	if( Math.random() < this.backfireChance )
+	{
+		county.playerSupport -= this.supportGiven;
+		returnText += " This has backfired and hurt your support."
+	}
+	else
+	{
+		county.playerSupport += this.supportGiven;
+		returnText += " This has risen your support."
+	}
+	county.testBounds();
+	return returnText;
 }
 
 /*						Graffiti			*/
-function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
+function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked)
 {
     this.id = "graffiti";
     this.text = "Spray graffiti with an awareness message";
+    this.resultText = "You sprayed a graffiti awareness message in ";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
+	this.backfireChance = backfireChance;
 	this.isGlobalAction = isGlobalAction;
 	this.isUnlocked = isUnlocked;
 }
 
-Graffiti.prototype.outcome = function()
+Graffiti.prototype.outcome = function(county)
 {
 	console.log("Graffiti outcome");
 
@@ -94,7 +113,7 @@ Graffiti.prototype.outcome = function()
 		var recruit = new Recruit();
 
 		bootbox.dialog({
-  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
   			title: "You received a message from " + recruit.name,
   			buttons:
   			{
@@ -115,22 +134,38 @@ Graffiti.prototype.outcome = function()
       		}
 		});
 	}
+
+	var returnText = this.resultText + county.name + ".";
+	if( Math.random() < this.backfireChance )
+	{
+		county.playerSupport -= this.supportGiven;
+		returnText += " This has backfired and hurt your support there."
+	}
+	else
+	{
+		county.playerSupport += this.supportGiven;
+		returnText += " This has risen your support there."
+	}
+	county.testBounds();
+	return returnText;
 }
 
 /*						Speaking			*/
-function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
+function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
 {
     this.id = "speaking";
     this.text = "Speak to someone";
+    this.resultText = "You went door to door and spoke with people in ";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
+	this.backfireChance = backfireChance;
 	this.isGlobalAction = isGlobalAction;
 	this.isUnlocked = isUnlocked;
 }
 
-Speaking.prototype.outcome = function()
+Speaking.prototype.outcome = function(county)
 {
 	console.log("Speaking outcome");
 
@@ -145,7 +180,7 @@ Speaking.prototype.outcome = function()
 		var recruit = new Recruit();
 
 		bootbox.dialog({
-  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
   			title: "You received a message from " + recruit.name,
   			buttons:
   			{
@@ -166,22 +201,38 @@ Speaking.prototype.outcome = function()
       		}
 		});
 	}
+
+	var returnText = this.resultText + county.name + ".";
+	if( Math.random() < this.backfireChance )
+	{
+		county.playerSupport -= this.supportGiven;
+		returnText += " This has backfired and hurt your support there."
+	}
+	else
+	{
+		county.playerSupport += this.supportGiven;
+		returnText += " This has risen your support there."
+	}
+	county.testBounds();
+	return returnText;
 }
 
 /*						Flyers			*/
-function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
+function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
 {
     this.id = "flyers";
 	this.text = "Spread some flyers";
+	this.resultText = "You distributed some flyers in ";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
+	this.backfireChance = backfireChance;
 	this.isGlobalAction = isGlobalAction;
 	this.isUnlocked = isUnlocked;
 }
 
-Flyers.prototype.outcome = function()
+Flyers.prototype.outcome = function(county)
 {
 	console.log("Flyers outcome");
 
@@ -196,7 +247,7 @@ Flyers.prototype.outcome = function()
 		var recruit = new Recruit();
 
 		bootbox.dialog({
-  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
   			title: "You received a message from " + recruit.name,
   			buttons:
   			{
@@ -217,22 +268,38 @@ Flyers.prototype.outcome = function()
       		}
 		});
 	}
+
+	var returnText = this.resultText + county.name + ".";
+	if( Math.random() < this.backfireChance )
+	{
+		county.playerSupport -= this.supportGiven;
+		returnText += " This has backfired and hurt your support there."
+	}
+	else
+	{
+		county.playerSupport += this.supportGiven;
+		returnText += " This has risen your support there."
+	}
+	county.testBounds();
+	return returnText;
 }
 
 /*						Demo			*/
-function Demo(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
+function Demo(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
 {
     this.id = "demo";
 	this.text = "Organize a demonstration";
+	this.resultText = "You organized a demonstration in ";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
+	this.backfireChance = backfireChance;
 	this.isGlobalAction = isGlobalAction;
 	this.isUnlocked = isUnlocked;
 }
 
-Demo.prototype.outcome = function()
+Demo.prototype.outcome = function(county)
 {
 	console.log("Demo outcome");
 
@@ -247,7 +314,7 @@ Demo.prototype.outcome = function()
 		var recruit = new Recruit();
 
 		bootbox.dialog({
-  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
   			title: "You received a message from " + recruit.name,
   			buttons:
   			{
@@ -268,22 +335,38 @@ Demo.prototype.outcome = function()
       		}
 		});
 	}
+
+	var returnText = this.resultText + county.name + ".";
+	if( Math.random() < this.backfireChance )
+	{
+		county.playerSupport -= this.supportGiven;
+		returnText += " This has backfired and hurt your support there."
+	}
+	else
+	{
+		county.playerSupport += this.supportGiven;
+		returnText += " This has risen your support there."
+	}
+	county.testBounds();
+	return returnText;
 }
 
 /*						Election			*/
-function Election(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
+function Election(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
 {
     this.id = "election";
 	this.text = "Candidate for presidental election";
+	this.resultText = "A presidental nominanee has been selected from your party.";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
+	this.backfireChance = backfireChance;
 	this.isGlobalAction = isGlobalAction;
 	this.isUnlocked = isUnlocked;
 }
 
-Election.prototype.outcome = function()
+Election.prototype.outcome = function(county)
 {
 	console.log("Election outcome");
 
@@ -298,7 +381,7 @@ Election.prototype.outcome = function()
 		var recruit = new Recruit();
 
 		bootbox.dialog({
-  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
   			title: "You received a message from " + recruit.name,
   			buttons:
   			{
@@ -319,22 +402,38 @@ Election.prototype.outcome = function()
       		}
 		});
 	}
+
+	var returnText = this.resultText;
+	if( Math.random() < this.backfireChance )
+	{
+		county.playerSupport = 5;
+		returnText += " This has backfired and you have lost the election."
+	}
+	else
+	{
+		returnText += " You have won the election!"
+		gameOver = true;
+	}
+	
+	return returnText;
 }
 
 /*						Newspapers			*/
-function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked)
+function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked)
 {
     this.id = "newspapers";
 	this.text = "Publish an article on a newspaper";
+	this.resultText = "A newspaper article has been published in ";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
+	this.backfireChance = backfireChance;
 	this.isGlobalAction = isGlobalAction;
 	this.isUnlocked = isUnlocked;
 }
 
-Newspapers.prototype.outcome = function()
+Newspapers.prototype.outcome = function(county)
 {
 	console.log("Newspapers outcome");
 
@@ -349,7 +448,7 @@ Newspapers.prototype.outcome = function()
 		var recruit = new Recruit();
 
 		bootbox.dialog({
-  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
   			title: "You received a message from " + recruit.name,
   			buttons:
   			{
@@ -370,22 +469,38 @@ Newspapers.prototype.outcome = function()
       		}
 		});
 	}
+
+	var returnText = this.resultText + county.name + ".";
+	if( Math.random() < this.backfireChance )
+	{
+		county.playerSupport -= this.supportGiven;
+		returnText += " This has backfired and hurt your support there."
+	}
+	else
+	{
+		county.playerSupport += this.supportGiven;
+		returnText += " This has risen your support there."
+	}
+	county.testBounds();
+	return returnText;
 }
 
 /*						Hacking			*/
-function Hacking(supportNeeded, supportGiven, recruitmentChance, caughtChance, isGlobalAction, isUnlocked) 
+function Hacking(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
 {
     this.id = "hacking";
 	this.text = "Hack a governmental website";
+	this.resultText = "The governmental website has been hacked.";
 	this.supportNeeded = supportNeeded;
 	this.supportGiven = supportGiven;
 	this.recruitmentChance = recruitmentChance;
 	this.caughtChance = caughtChance;
+	this.backfireChance = backfireChance;
 	this.isGlobalAction = isGlobalAction;
 	this.isUnlocked = isUnlocked;
 }
 
-Hacking.prototype.outcome = function()
+Hacking.prototype.outcome = function(county)
 {
 	console.log("Hacking outcome");
 
@@ -400,7 +515,7 @@ Hacking.prototype.outcome = function()
 		var recruit = new Recruit();
 
 		bootbox.dialog({
-  			message: "<img src=https://cdn3.iconfinder.com/data/icons/business-pack-3/512/12-512.png width=150 height=150>" + recruit.text,
+  			message: "<img src=img/test.png width=100 height=100>" + recruit.text,
   			title: "You received a message from " + recruit.name,
   			buttons:
   			{
@@ -421,4 +536,18 @@ Hacking.prototype.outcome = function()
       		}
 		});
 	}
+
+	var returnText = this.resultText;
+	if( Math.random() < this.backfireChance )
+	{
+		county.playerSupport -= this.supportGiven;
+		returnText += " This has backfired and hurt your support."
+	}
+	else
+	{
+		county.playerSupport += this.supportGiven;
+		returnText += " This has risen your support."
+	}
+	county.testBounds();
+	return returnText;
 }	
