@@ -43,10 +43,10 @@ function print_news(text) {
 }
 
 function update_game_status() {
-    console.info('playerSupport', playerSupport);
+    // console.info('playerSupport', playerSupport);
     update_progress(playerSupport);
     $(counties).each(function(i, el) {
-        console.info('playerSupport in ' + el.name, el.playerSupport);
+        // console.info('playerSupport in ' + el.name, el.playerSupport);
         update_map(el.id, el.playerSupport);
     });
 }
@@ -90,11 +90,8 @@ $(function() {
                         label: "yes",
                         callback: function()
                         {
-                            console.log("yes");
-                            // player.recruits.push( recruit );
-                            // recruit.ability();
-
                             gameEngine.playerGameMove(action);
+                            //print_news("to");
                             update_game_status();
                         }
                     }
@@ -113,7 +110,10 @@ $(function() {
                         label: '<img src="'+counties[0].icon+'"/>',
                         callback: function()
                         {
-                            gameEngine.playerGameMove(action, counties[0]);
+                            var result = gameEngine.playerGameMove(action, counties[0]);
+                            console.log("ggggggggg\n")
+                            console.log(result);
+                            print_news(result);
                             update_game_status();
                         }
                     },
