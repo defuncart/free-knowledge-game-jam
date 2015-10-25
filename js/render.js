@@ -2,7 +2,7 @@ var gameEngine = new GameEngine();
 
 var actionMap = {};
 $(player.actions).each(function(i, el) {
-        actionMap[el.id] = el;
+    actionMap[el.id] = el;
 });
 
 
@@ -38,6 +38,19 @@ function update_progress(player_support) {
     $('#progress_bar').css('width', player_support + '%');
 }
 
+function print_news(text) {
+    $('#paperText').text(text);
+}
+
+function update_game_status() {
+    console.info('playerSupport', playerSupport);
+    update_progress(playerSupport);
+    $(counties).each(function(i, el) {
+        console.info('playerSupport in ' + el.name, el.playerSupport);
+        update_map(el.id, el.playerSupport);
+    });
+}
+
 function random_progress() {  // just for testing purposes
     update_progress(Math.floor((Math.random() * 100)));
     setTimeout(random_progress, 1000);
@@ -53,6 +66,7 @@ function random_coloring() {  // just for testing purposes
 
 $(function() {
     render_actions();
+    update_game_status();
 
     $('#actions').on('click', 'img.active', function(e) {
         // e.preventDefault();
@@ -80,7 +94,8 @@ $(function() {
                             // player.recruits.push( recruit );
                             // recruit.ability();
 
-                            gameEngine.playerGameMove(action);  
+                            gameEngine.playerGameMove(action);
+                            update_game_status();
                         }
                     }
                 }
@@ -99,6 +114,7 @@ $(function() {
                         callback: function()
                         {
                             gameEngine.playerGameMove(action, counties[0]);
+                            update_game_status();
                         }
                     },
                     county2:
@@ -107,6 +123,7 @@ $(function() {
                         callback: function()
                         {
                             gameEngine.playerGameMove(action, counties[1]);
+                            update_game_status();
                         }
                     },
                     county3:
@@ -115,6 +132,7 @@ $(function() {
                         callback: function()
                         {
                             gameEngine.playerGameMove(action, counties[2]);
+                            update_game_status();
                         }
                     },
                     county4:
@@ -123,6 +141,7 @@ $(function() {
                         callback: function()
                         {
                             gameEngine.playerGameMove(action, counties[3]);
+                            update_game_status();
                         }
                     },
                     county5:
@@ -131,6 +150,7 @@ $(function() {
                         callback: function()
                         {
                             gameEngine.playerGameMove(action, counties[4]);
+                            update_game_status();
                         }
                     },
                     county6:
@@ -139,6 +159,7 @@ $(function() {
                         callback: function()
                         {
                             gameEngine.playerGameMove(action, counties[5]);
+                            update_game_status();
                         }
                     },
                     county7:
@@ -147,6 +168,7 @@ $(function() {
                         callback: function()
                         {
                             gameEngine.playerGameMove(action, counties[6]);
+                            update_game_status();
                         }
                     },
                     county8:
@@ -155,6 +177,7 @@ $(function() {
                         callback: function()
                         {
                             gameEngine.playerGameMove(action, counties[7]);
+                            update_game_status();
                         }
                     }
                 }
@@ -163,14 +186,4 @@ $(function() {
 
     });  
 
-  
-    
-    // test colouring and progress
-    random_coloring();
-    random_progress();
 });
-
-function myFunction()
-{
-    console.log("here");
-}
