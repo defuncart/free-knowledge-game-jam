@@ -50,4 +50,5 @@ $(function() {
     // test colouring and progress
     random_coloring();
     random_progress();
+    $('#main-container').removeClass('hidden');
 });
