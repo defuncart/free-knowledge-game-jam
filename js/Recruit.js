@@ -5,7 +5,10 @@ function Recruit()
 {
 	var percentageArray = [0.4, 0.05, 0.15, 0.15, 0.25];
 	var recruits = ["Spy", "Mole", "Hacker", "Printer", "Activist"];
-	var recruitNames = ["Phil Gagliano", "Sonny Bumbalough", "Benjamin Miler", "Laverne Wojcik", "Santiago Hocker", "Guy Raye", "Willis Ismail", "Sylvester Robison", "Britt Havel", "Buck Kehl", "Kacie Cantero", "Shante Rios", "Odelia Howell", "Jutta Wilcoxson", "Rosy O'Shea", "Keva Plunkett", "Magaly Zheng", "Tamiko Eyler", "Keli Welker", "Tenesha Grosch"];
+	var recruitNamesMale = ["Phil Gagliano", "Sonny Bumbalough", "Benjamin Miler", "Laverne Wojcik", "Santiago Hocker", "Guy Raye", "Willis Ismail", "Sylvester Robison", "Britt Havel", "Buck Kehl"]; 
+	var recruitNamesFemale = ["Kacie Cantero", "Shante Rios", "Odelia Howell", "Jutta Wilcoxson", "Rosy O'Shea", "Keva Plunkett", "Magaly Zheng", "Tamiko Eyler", "Keli Welker", "Tenesha Grosch"];
+	var numberOfMaleAvatars = 10;
+	var numberOfFemaleAvatars = 9;
 	var recruitText = [];
 
 	var count = 0.0;
@@ -16,7 +19,20 @@ function Recruit()
 		if( randomNumber < count )
 		{
 			this.type = recruits[i];
-			this.name = recruitNames[ Math.floor(Math.random()*recruitNames.length) ]
+			
+			if( Math.random() > 0.5 )
+			{
+				this.name = recruitNamesMale[ Math.floor(Math.random()*recruitNamesMale.length) ]
+				var avatarIndex = Math.floor(Math.random()*numberOfMaleAvatars) + 1 //indexed m1, m2 etc.
+				this.avatar = "img/avatars/m" + avatarIndex + ".png"
+			}
+			else
+			{
+				this.name = recruitNamesFemale[ Math.floor(Math.random()*recruitNamesFemale.length) ]
+				var avatarIndex = Math.floor(Math.random()*numberOfFemaleAvatars) + 1 //indexed f1, f2 etc.
+				this.avatar = "img/avatars/f" + avatarIndex + ".png"
+			}
+
 			this.text = "I want to join your group."
 			if( i == 2 ){ hackerIsUnlocked = true }
 			if( i == 3 ){ printerIsUnlocked = true }

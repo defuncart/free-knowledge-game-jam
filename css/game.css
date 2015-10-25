@@ -47,11 +47,43 @@ h2 {
     width: 100%;
 }
 #progress_bar {
-    background: url("../img/progress_bar.png");
+    background: url("../img/progress_bar.png")  no-repeat center;
     height: 100%;
     background-size: cover;
     -webkit-transition: width 1s ease-in-out;
     -moz-transition: width 1s ease-in-out;
     -o-transition: width 1s ease-in-out;
     transition: width 1s ease-in-out;    
+}
+
+#paper {
+/*    background: url("../img/paper.png");
+    height: 400*0.7;
+    width: 274*0.7;*/
+    /*background-size: */
+    /*position: absolute;*/
+    /*left: 5%;*/
+    position: relative;
+}​
+
+#paperImage {
+    /*position: absolute;*/
+    height: 50px;
+    width: 50px;
+    /*left: 0;
+    top: 0;*/
+}
+
+#paperText {
+    z-index: 100;
+    position: absolute;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-color: black;
+    border-width: 4px;
+    left: 25%;
+    top: 50%;
+    /*left: 150px;
+    top: 350px;*/
 }

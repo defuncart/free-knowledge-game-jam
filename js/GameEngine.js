@@ -15,7 +15,29 @@ function addRecruit()
 	var recruit = new Recruit();
 	console.log(recruit.name);
 	console.log(recruit.type);
-	player.recruits.push( recruit );
+	//player.recruits.push( recruit );
+
+	bootbox.dialog({
+  			message: "<img src="+recruit.avatar+" width=100 height=100>" + recruit.text,
+  			title: "You received a message from " + recruit.name,
+  			buttons:
+  			{
+    			no:
+    			{
+      				label: "no",
+      			},
+			    yes:
+			    {
+      				label: "yes",
+      				callback: function()
+      				{
+      					console.log("yes");
+        				player.recruits.push( recruit );
+        				recruit.ability();
+      				}
+      			}
+      		}
+		});
 }
 
 var government = new Government();
@@ -70,7 +92,7 @@ function play()
 					(randomAction == NEWSPAPERS_ACTION && !printerIsUnlocked) || 
 					(randomAction == ELECTION_ACTION && playerSupport < 50) )
 
-		if( player.actions[randomAction].isGlobalAction )
+		if( player.actions[randomAction].isGlobal )
 		{
 			for(var i=0; i < counties.length; i++)
 			{
@@ -124,6 +146,22 @@ function go()
 	console.log( playerSupport );
 }
 
+GameEngine.prototype.playerGameMove = function(action)
+{
+	for(var i=0; i < counties.length; i++)
+	{
+		//playerGameMove(action, counties[i]);
+		var result = action.outcome( counties[i] );
+		console.log(result);
+	}
+}
+
+GameEngine.prototype.playerGameMove = function(action, county)
+{
+	var result = action.outcome( county );
+	console.log(result);
+}
+
 function playerGameMove(action, county)
 {
 	var result = player.actions[action].outcome( county );
@@ -146,7 +184,7 @@ function computerGameMove()
 		randomAction = Math.floor(Math.random()*government.actions.length);
 	} while( government.actions[randomAction].supportNeeded > governmentSupport )
 
-	if( government.actions[randomAction].isGlobalAction )
+	if( government.actions[randomAction].isGlobal )
 	{
 		for(var i=0; i < counties.length; i++)
 		{
