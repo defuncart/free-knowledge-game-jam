@@ -42,6 +42,16 @@ function print_news(text) {
     $('#paperText').text(text);
 }
 
+function show_game_over() {
+    $('#overlay_game_over').hide().removeClass('hidden').fadeIn('slow');
+};
+function show_election_success() {
+    $('#overlay_election_success').hide().removeClass('hidden').fadeIn('slow');
+};
+function show_election_failure() {
+    $('#overlay_election_failure').hide().removeClass('hidden').fadeIn('slow');
+};
+
 function update_game_status() {
     // console.info('playerSupport', playerSupport);
     update_progress(playerSupport);

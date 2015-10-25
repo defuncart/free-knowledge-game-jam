@@ -75,3 +75,14 @@ h2 {
     top: 40px;
     width: 290px;
 }
+.overlay {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    text-align: center;
+}
+.overlay img {
+    
+    width: 80%;
+    margin: 0 auto;
+}
