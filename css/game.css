@@ -57,33 +57,21 @@ h2 {
 }
 
 #paper {
-/*    background: url("../img/paper.png");
-    height: 400*0.7;
-    width: 274*0.7;*/
-    /*background-size: */
-    /*position: absolute;*/
-    /*left: 5%;*/
     position: relative;
-}
-
-#paperImage {
-    /*position: absolute;*/
-    height: 50px;
-    width: 50px;
-    /*left: 0;
-    top: 0;*/
+    background: url("../img/paper.png");
+    background-size: cover;
+    height: 160px;
 }
 
 #paperText {
     z-index: 100;
     position: absolute;
-    color: white;
+    color: #333;
     font-size: 18px;
     font-weight: bold;
     border-color: black;
     border-width: 4px;
-    left: 25%;
-    top: 50%;
-    /*left: 150px;
-    top: 350px;*/
+    left: 30px;
+    top: 100px;
+    width: 290px;
 }
