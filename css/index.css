@@ -2,7 +2,9 @@ html, body {
     height: 100%;
     background: #5a1c16;
 }
-
+h2 {
+    color: #fff;
+}
 #main-container {
     height: 100%;
     padding-top: 100px;
