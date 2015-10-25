@@ -4,7 +4,7 @@ function render_actions() {
     $(player.actions).each(function(i, el) {
         var $action;
         if ((playerSupport >= el.supportNeeded) && el.isUnlocked) {
-            $actions.append('<button class="btn btn-primary">' + el.text + '</button>');
+            $actions.append('<img alt="" title="' + el.text + '" src="img/icon_' + el.id + '.png" data-id="' + el.id + '" />');
         }
     });
 }
@@ -23,8 +23,7 @@ function update_map(region_id, player_support) {
 }
 
 function update_progress(player_support) {
-    $('#progress_bar').css('width', player_support + 'px');
-    // TODO: Try this solution for the progress bar http://stackoverflow.com/a/5513717/322818
+    $('#progress_bar').css('width', player_support + '%');
 }
 
 function random_progress() {  // just for testing purposes
@@ -43,9 +42,9 @@ function random_coloring() {  // just for testing purposes
 $(function() {
     render_actions();
 
-    $('#actions').on('click', '.btn', function(e) {
+    $('#actions').on('click', 'img', function(e) {
         e.preventDefault();
-        alert($(this).text());
+        alert($(this).data('id'));
     });    
     
     // test colouring and progress

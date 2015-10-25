@@ -19,6 +19,7 @@ var HACKING_ACTION = 7
 /*						Social Media			*/
 function SocialMedia(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked)
 {
+    this.id = "socialmedia";
     this.text = "Share knowledge on social media";
     this.resultText = "You shared an article via Social Media."
 	this.supportNeeded = supportNeeded;
@@ -85,6 +86,7 @@ SocialMedia.prototype.outcome = function(county)
 /*						Graffiti			*/
 function Graffiti(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked)
 {
+    this.id = "graffiti";
     this.text = "Spray graffiti with an awareness message";
     this.resultText = "You sprayed a graffiti awareness message in ";
 	this.supportNeeded = supportNeeded;
@@ -151,6 +153,7 @@ Graffiti.prototype.outcome = function(county)
 /*						Speaking			*/
 function Speaking(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
 {
+    this.id = "speaking";
     this.text = "Speak to someone";
     this.resultText = "You went door to door and spoke with people in ";
 	this.supportNeeded = supportNeeded;
@@ -217,6 +220,7 @@ Speaking.prototype.outcome = function(county)
 /*						Flyers			*/
 function Flyers(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
 {
+    this.id = "flyers";
 	this.text = "Spread some flyers";
 	this.resultText = "You distributed some flyers in ";
 	this.supportNeeded = supportNeeded;
@@ -283,6 +287,7 @@ Flyers.prototype.outcome = function(county)
 /*						Demo			*/
 function Demo(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
 {
+    this.id = "demo";
 	this.text = "Organize a demonstration";
 	this.resultText = "You organized a demonstration in ";
 	this.supportNeeded = supportNeeded;
@@ -349,6 +354,7 @@ Demo.prototype.outcome = function(county)
 /*						Election			*/
 function Election(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
 {
+    this.id = "election";
 	this.text = "Candidate for presidental election";
 	this.resultText = "A presidental nominanee has been selected from your party.";
 	this.supportNeeded = supportNeeded;
@@ -415,6 +421,7 @@ Election.prototype.outcome = function(county)
 /*						Newspapers			*/
 function Newspapers(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked)
 {
+    this.id = "newspapers";
 	this.text = "Publish an article on a newspaper";
 	this.resultText = "A newspaper article has been published in ";
 	this.supportNeeded = supportNeeded;
@@ -481,6 +488,7 @@ Newspapers.prototype.outcome = function(county)
 /*						Hacking			*/
 function Hacking(supportNeeded, supportGiven, recruitmentChance, caughtChance, backfireChance, isGlobalAction, isUnlocked) 
 {
+    this.id = "hacking";
 	this.text = "Hack a governmental website";
 	this.resultText = "The governmental website has been hacked.";
 	this.supportNeeded = supportNeeded;
